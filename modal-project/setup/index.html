@@ -13,7 +13,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>modal project</h1>
+    <!-- the hero -->
+    <header class="hero">
+      <div class="banner">
+        <h1>modal project</h1>
+        <button class="btn modal-btn js-modal-btn">Open modal</button>
+      </div>
+    </header>
+    <!-- modal -->
+    <div class="js-modal-overlay modal-overlay">
+      <!-- modal container-->
+      <div class="modal-container">
+        <!-- modal  heading-->
+        <h3>Naldos says this is a modal element</h3>
+        <!-- modal button -->
+        <button class="js-close-btn close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
