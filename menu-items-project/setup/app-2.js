@@ -30,7 +30,7 @@ function displayItems(menuArray) {
                 <!-- the item info header -->
                 <header>
                   <h4>${title}</h4>
-                  <h4 class="price">${calculateMoney(priceCent)}</h4>
+                  <h4 class="price">$${calculateMoney(priceCent)}</h4>
                 </header>
                 <p class="item-text">${desc}</p>
               </div>
