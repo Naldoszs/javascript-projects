@@ -3,13 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabs</title>
+    <title>Tabs - Naldos</title>
 
     <!-- styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>New project</h1>
+    <section class="section">
+      <!-- first div class title -->
+      <div class="title">
+        <h2>About</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+          minima beatae totam.
+        </p>
+      </div>
+      <!-- second div class about-center & section-center -->
+      <div class="about-center section-center">
+        <!-- first article -->
+        <article>
+          <img src="./images/hero-bcg.jpeg" alt="the hero image" />
+        </article>
+        <!-- second article -->
+        <article class="about">
+          <!-- the btns container -->
+          <div class="btn-container">
+            <!-- first btn start -->
+            <button class="tab-btn active" data-id="history">History</button>
+            <!-- first btn end -->
+            <!-- second btn start -->
+            <button class="tab-btn" data-id="vision">Vision</button>
+            <!-- second btn end -->
+            <!-- third btn start -->
+            <button class="tab-btn" data-id="goals">Goals</button>
+            <!-- third btn end -->
+          </div>
+          <article class="about-content">
+            <!-- first item -->
+            <div class="content active" id="history">
+              <h4>History</h4>
+              <p>
+                I’m a wanderer of the modern aesthetic jungle, sipping cold brew
+                while debating whether my next move should involve vintage vinyl
+                or a thrifted jacket. Nostalgia meets innovation as I scroll
+                through endless playlists, each more obscure than the last. The
+                scent of fresh tacos mingles with the hum of craft coffee
+                machines, while conversations about sustainable living echo in
+                the background. My world is a fusion of indie films, artisan
+                markets, and impromptu bike rides through sunlit streets. It’s
+                about finding beauty in the everyday—whether it’s a perfectly
+                brewed cup or a well-worn book that feels like home.
+              </p>
+            </div>
+            <!-- first item end -->
+            <!-- second item -->
+            <div class="content" id="vision">
+              <h4>Vision</h4>
+              <p>
+                Man bun energy meets retro vibes, with PBR&B beats and copper
+                mugs shining in the prism of helvetica cool. Think synthwave
+                crucifixes, deep V tees, and biodiesel swagger. Polaroid
+                snapshots and listicle dreams pair with enamel pins, chillwave
+                moods, and tattooed aesthetics. Add a touch of La Croix fizz,
+                Four Loko nostalgia, and air plant charm. It’s all about
+                Bushwick hoodies, pour-over coffee, and jean shorts with a
+                splash of chartreuse chic. Picture rooftop parties, hammocks,
+                and sustainable skateboard vibes, complete with affogato breaks
+                and live-edge tables. It’s a world where narwhals and truffaut
+                musings collide in effortless style.
+              </p>
+              <ul>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+              </ul>
+            </div>
+            <!-- second item end -->
+            <!-- third item -->
+            <div class="content" id="goals">
+              <h4>Goals</h4>
+              <p>
+                Chambray vibes meet indie charm, where artisanal brunches and
+                heirloom creations take center stage. Picture $4 avocado toast,
+                smoky raclette, and Shoreditch-style flair, paired with vintage
+                tote bags and a touch of fingerstache cool. It’s a world of
+                poutine cravings, blog-worthy gastropubs, and effortless
+                style—think leggings and cornhole competitions under string
+                lights. Cold-pressed juices fuel rooftop parties while mixtapes
+                and direct trade coffee set the mood. Small-batch magic blends
+                with adaptogen trends, coloring books in hand and hammocks
+                swaying in the breeze. Imagine letterpress aesthetics,
+                dreamcatchers, and photo booth memories, all wrapped up in a
+                tapestry of yuccie banh mi bites, quinoa bowls, and chicharrones
+                indulgence.
+              </p>
+            </div>
+            <!-- third item end -->
+          </article>
+        </article>
+      </div>
+    </section>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
