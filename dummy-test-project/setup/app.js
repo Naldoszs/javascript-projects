@@ -1,13 +1,100 @@
-// lorem text
-const text = [
-  `Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop. Cupcake lemon drops bear claw gummies. Jelly bear claw gummi bears lollipop cotton candy gummi bears chocolate bar cake cookie. Cupcake muffin danish muffin cookie gummies. Jelly beans tiramisu pudding. Toffee soufflé chocolate cake pastry brownie. Oat cake halvah sweet roll cotton candy croissant lollipop. Macaroon tiramisu chocolate bar candy candy carrot cake jelly sweet. Gummies croissant macaroon dessert. Chocolate cake dragée pie.`,
-  `Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps. Twee shabby chic taiyaki flannel, enamel pin venmo vape four loko. Hexagon kale chips typewriter kitsch 8-bit organic plaid small batch keffiyeh ethical banh mi narwhal echo park cronut.`,
-  `Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.`,
-  `Cat gets stuck in tree firefighters try to get cat down firefighters get stuck in tree cat eats firefighters' slippers kitty power ignore the squirrels, you'll never catch them anyway for what a cat-ass-trophy! or purr as loud as possible, be the most annoying cat that you can, and, knock everything off the table. Pretend you want to go out but then don't bite off human's toes, yet disappear for four days and return home with an expensive injury; bite the vet so catch eat throw up catch eat throw up bad birds. `,
-  `This opera's as lousy as it is brilliant! Your lyrics lack subtlety. You can't just have your characters announce how they feel. That makes me feel angry! Anyhoo, your net-suits will allow you to experience Fry's worm infested bowels as if you were actually wriggling through them.
-I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Michelle, I don't regret this, but I both rue and lament it. Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat.`,
-  `Airedale hard cheese mozzarella. Pecorino melted cheese port-salut emmental babybel cheese and wine melted cheese manchego. Everyone loves blue castello everyone loves fromage cheese slices airedale cheddar cream cheese. Bavarian bergkase who moved my cheese halloumi port-salut gouda jarlsberg ricotta rubber cheese. Stinking bishop smelly cheese brie.`,
-  `Salvia glossier subway tile, leggings mustache YOLO semiotics chia. Pitchfork tbh af blog church-key meggings vaporware PBR&B master cleanse post-ironic man bun pabst mustache letterpress synth. Snackwave raw denim godard, 3 wolf moon shaman offal kitsch unicorn live-edge selvage schlitz fashion axe vaporware drinking vinegar prism. Shabby chic tacos artisan, chambray chicharrones cardigan leggings typewriter af pop-up williamsburg meditation PBR&B viral. You probably haven't heard of them DIY jean shorts subway tile fashion axe bushwick kitsch tumeric cloud bread vaporware freegan franzen pork belly chicharrones banh mi.`,
-  `Man braid celiac synth freegan readymade, pitchfork fam salvia waistcoat lomo bitters gentrify four loko. Pitchfork semiotics post-ironic vegan. Tofu meditation microdosing hashtag semiotics venmo. Flexitarian vape tilde taiyaki. Prism poutine farm-to-table, messenger bag vegan taxidermy tattooed sartorial squid jean shorts fixie selvage trust fund vape.`,
-  `Rutters Plate Fleet boom chandler Brethren of the Coast handsomely lookout marooned brigantine knave. Buccaneer gangway jack rum loot spyglass line Jack Tar fore gaff. Gaff topmast scuttle ballast swab draught measured fer yer chains dance the hempen jig Chain Shot yardarm.`,
-];
+import { text } from "./data.js";
+
+//get elements
+const formEl = document.querySelector(".js-lorem-form");
+const inputEl = document.getElementById("amount");
+const resultContainer = document.querySelector(".js-lorem-text");
+const wrapperEl = document.querySelector(".js-wrapper");
+const modalEl = document.querySelector(".js-modal-element ");
+const modalTextEl = modalEl.querySelector("p");
+const iElement = modalEl.querySelector("button i");
+const clearAllBtnEl = document.querySelector(".js-clear-btn");
+let val;
+let randomText;
+//add event listener
+formEl.addEventListener("submit", (e) => {
+  //prevent initial behaviour
+  e.preventDefault();
+
+  //get the val inside the input
+  val = parseInt(inputEl.value);
+
+  //if empty val
+  //if num is  or equal less than 0
+  //if num is greater than 9
+  if (inputEl.value === "") {
+    resultContainer.innerHTML = ""; //clear everything in d container
+    //add class of .show-modal on the wrapper element
+    modalTextEl.innerText = "Please, input a valid number"; // change the text of the modal
+    wrapperEl.classList.add("show-modal");
+    //add a click event on the i tag of the show modal
+    removeTheModal();
+  } else if (isNaN(val) || val <= 0 || val > 9) {
+    resultContainer.innerHTML = ""; //clear everything in d container
+    modalTextEl.innerText =
+      "Please, input a valid number greater than 0 and less than 10"; // change the text of the modal
+    wrapperEl.classList.add("show-modal");
+  } else {
+    generateParas();
+  }
+
+  //add inner text
+
+  //end actn
+  inputEl.value = "";
+});
+
+// function to add click event on the i tag
+
+function removeTheModal() {
+  iElement.addEventListener("click", function (e) {
+    wrapperEl.classList.remove("show-modal");
+  });
+}
+
+//function to clear all text in the resultcontainer
+function clearAllParas() {
+  resultContainer.innerHTML = "";
+}
+
+//function to create clear all btn
+
+function createClearAllBtn() {
+  const btn = document.createElement("button");
+  // add the btn class
+  btn.classList.add("js-clear-btn", "clear-btn");
+  //add text content
+  btn.textContent = "Clear All";
+
+  //add event listener on the btn element
+  btn.addEventListener("click", clearAllParas);
+
+  //append
+  resultContainer.appendChild(btn);
+  return btn;
+}
+
+//function to display paragraphs generated on the page
+function generateParas() {
+  //make the result empty to start wid
+  resultContainer.innerHTML = "";
+  //remove both modals of mistake automatically or manually
+  setTimeout(() => wrapperEl.classList.remove("show-modal"), 5000); // Automatically remove the modal
+
+  //random generate paragraph based on the input number
+  for (let i = 0; i < val; i++) {
+    //reassign randomeIndex
+    randomText = Math.floor(Math.random() * text.length);
+    //create new para
+    const newPara = document.createElement("p");
+    // add the result class
+    newPara.classList.add("result");
+    //add inner text
+    newPara.innerText = text[randomText];
+    //append in the result container
+    resultContainer.appendChild(newPara);
+  }
+
+  //create a clear all btn
+  createClearAllBtn();
+}

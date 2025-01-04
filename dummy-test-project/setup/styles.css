@@ -90,7 +90,7 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
+  /* letter-spacing: var(--spacing); */
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
@@ -138,21 +138,22 @@ p {
 /*  global classes */
 
 .btn {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background: var(--clr-primary-5);
-  color: var(--clr-primary-1);
-  padding: 0.375rem 0.75rem;
-  letter-spacing: 1px;
+  color: var(--clr-white);
+  padding: 0.5rem 1rem;
+  /* letter-spacing: 1px; */
   display: inline-block;
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 1.2em;
+  font-weight: bold;
   border: 2px solid var(--clr-primary-5);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
 }
 .btn:hover {
-  color: var(--clr-primary-5);
+  color: var(--clr-primary-2);
   background: var(--clr-primary-8);
   border-color: var(--clr-primary-8);
 }
@@ -189,7 +190,7 @@ h3 {
 }
 .lorem-form {
   text-transform: capitalize;
-  letter-spacing: var(--spacing);
+  /* letter-spacing: var(--spacing); */
   margin-top: 2rem;
   margin-bottom: 4rem;
   display: flex;
@@ -198,20 +199,102 @@ h3 {
 }
 label {
   font-size: 1.25rem;
+
   color: var(--clr-primary-1);
 }
-input {
-  padding: 0.25rem 0.5rem;
-
+input[type="number"] {
+  padding: 0.5rem 1rem;
   width: 4rem;
   border-radius: var(--radius);
   border: none;
   margin: 0 0.5rem;
   font-size: 1.25rem;
 }
+input[type="number"]::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
 button {
   background: var(--clr-primary-10);
 }
 .result {
   margin-bottom: 2rem;
+}
+
+/* added styles */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 5em;
+}
+
+.wrapper .modal-element {
+  background-color: #fff;
+  border-radius: 1.6em;
+  position: absolute;
+  top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 1rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(40px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show-modal .modal-element {
+  visibility: visible;
+  opacity: 100;
+}
+.wrapper .modal-element > p {
+  position: relative;
+  color: black;
+  margin: 0; /*resets all*/
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-weight: 500;
+}
+
+.cancel-button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.cancel-button i {
+  font-size: 14px;
+  color: black;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 300ms ease-in-out;
+  top: 0px;
+  right: 0px;
+}
+.cancel-button i:hover {
+  color: red;
+}
+
+.clear-btn {
+  border: none;
+  background-color: var(--clr-red-dark);
+  color: white;
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+  padding: 1em;
+  width: 70%;
+  border-radius: 1em;
+  transform: translate(0);
+}
+.clear-btn.hidden {
+  transform: translate(-2000%);
+}
+.clear-btn:hover {
+  background-color: var(--clr-red-light);
+  transform: scale(1.1);
 }

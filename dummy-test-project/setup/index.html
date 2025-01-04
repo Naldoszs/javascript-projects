@@ -6,11 +6,37 @@
     <title>Lorem Ipsum</title>
 
     <!-- styles -->
+
     <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1>lorem ipsum project</h1>
+    <section class="section-center">
+      <h3>Tired of dummy test?</h3>
+      <!-- the form -->
+      <form action="" class="js-lorem-form lorem-form">
+        <label for="amount">Paragraphs:</label>
+        <input type="number" name="amount" id="amount" placeholder="5" />
+        <button type="submit" class="btn">Generate</button>
+      </form>
+      <!-- d article -->
+      <div class="js-wrapper wrapper">
+        <div class="js-modal-element modal-element" role="modal">
+          <p></p>
+          <button class="cancel-button">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <article class="js-lorem-text lorem-text"></article>
+      </div>
+    </section>
+
     <!-- javascript -->
-    <script src="app.js"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>
