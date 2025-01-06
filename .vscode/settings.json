@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Lato",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "\"IBM Plex Mono\"",
+  "editor.fontSize": 12.5,
   "liveServer.settings.port": 5501
 }
